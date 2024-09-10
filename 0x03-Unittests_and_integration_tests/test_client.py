@@ -32,7 +32,7 @@ class TestGithubOrgClient(unittest.TestCase):
         spec.org()
         mock.assert_called_once_with(endpoint)
 
-    @parmeterized.expand([
+    @parameterized.expand([
         ('random_url', {'repos_url': 'http://some_url.com'})
     ])
     def test_public_repos_url(self, name, result):
