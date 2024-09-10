@@ -25,7 +25,7 @@ class TestAccessNestedMap(unittest.TestCase):
         nested_map: Dict,
         path: Tuple[str],
         expected: Union[Dict, int],
-        ) -> None:
+    ) -> None:
         """Tests `access_nested_map`'s output."""
         self.assertEqual(access_nested_map(nested_map, path), expected)
 
@@ -38,7 +38,7 @@ class TestAccessNestedMap(unittest.TestCase):
         nested_map: Dict,
         path: Tuple[str],
         exception: Exception,
-        ) -> None:
+    ) -> None:
         """Tests `access_nested_map`'s exception raising."""
         with self.assertRaises(exception):
             access_nested_map(nested_map, path)
@@ -54,7 +54,7 @@ class TestGetJson(unittest.TestCase):
         self,
         test_url: str,
         test_payload: Dict,
-        ) -> None:
+    ) -> None:
         """Tests `get_josn`'s output."""
         attrs = {'json.return_value': test_payload}
         with patch("requests.get", return_value=Mock(**attrs)) as req_get:
@@ -69,7 +69,7 @@ class TestMemoize(unittest.TestCase):
         class TestClass:
             def a_method(self):
                 return 42
-            
+
             @memoize
             def a_property(self):
                 return self.a_method()
